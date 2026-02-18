@@ -1,0 +1,5 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#34495e"/>
+  <text x="400" y="180" font-family="Arial" font-size="48" fill="white" text-anchor="middle" font-weight="bold">Industrial Roofing</text>
+  <text x="400" y="240" font-family="Arial" font-size="32" fill="#ecf0f1" text-anchor="middle">TPO Single-Ply Membrane</text>
+</svg>
