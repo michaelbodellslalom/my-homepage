@@ -176,6 +176,8 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .contact-btn:hover {
@@ -201,4 +203,71 @@ body {
 @keyframes throb {
     from { transform: scale(1); }
     to { transform: scale(1.05); }
+}
+
+/* Contact Page Styles */
+.contact-page {
+    padding: 60px 40px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 60px 0;
+}
+
+.contact-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    min-width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-icon {
+    color: #6a3093;
+    margin-bottom: 20px;
+}
+
+.contact-card h3 {
+    color: #6a3093;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.back-btn {
+    background-color: white;
+    color: #6a3093;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn:active {
+    transform: translateY(0);
 }
