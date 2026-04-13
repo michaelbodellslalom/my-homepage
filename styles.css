@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
     min-height: 100vh;
     padding-top: 70px;
@@ -28,10 +28,12 @@ body {
 }
 
 .nav-left .brand {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    font-weight: normal;
     color: #1e3a8a;
     margin: 0;
+    letter-spacing: 2px;
 }
 
 .nav-right {
@@ -104,6 +106,7 @@ body {
 }
 
 .carousel-caption {
+    font-family: 'Bebas Neue', sans-serif;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -111,9 +114,10 @@ body {
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 15px;
-    font-size: 1.3rem;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: normal;
     text-align: center;
+    letter-spacing: 2px;
 }
 
 .carousel-dots {
@@ -144,10 +148,12 @@ body {
 }
 
 .intro {
+    font-family: 'Bebas Neue', sans-serif;
     color: white;
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 40px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 3px;
 }
 
 .profile-photo {
@@ -239,9 +245,11 @@ body {
 }
 
 .contact-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
     color: #1e3a8a;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
+    letter-spacing: 1px;
 }
 
 .contact-card p {
@@ -323,10 +331,12 @@ body {
 }
 
 .weather-location {
-    font-size: 1.8rem;
-    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    font-weight: normal;
     margin-bottom: 10px;
     color: #1e3a8a;
+    letter-spacing: 2px;
 }
 
 .weather-description {
