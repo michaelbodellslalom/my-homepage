@@ -271,3 +271,56 @@ body {
 .back-btn:active {
     transform: translateY(0);
 }
+
+/* Weather Widget */
+.weather-widget {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    margin: 40px auto;
+    max-width: 500px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.weather-content {
+    color: #6a3093;
+}
+
+.weather-location {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.weather-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.weather-temp {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #9b59b6;
+}
+
+.weather-details {
+    text-align: left;
+}
+
+.weather-details div {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+#description {
+    font-weight: bold;
+    color: #6a3093;
+}
+
+#feels-like {
+    color: #8e44ad;
+}

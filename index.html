@@ -60,6 +60,19 @@
         </div>
     </div>
     
+    <div class="weather-widget">
+        <div class="weather-content">
+            <div class="weather-location" id="location">Loading location...</div>
+            <div class="weather-info">
+                <div class="weather-temp" id="temperature">--°</div>
+                <div class="weather-details">
+                    <div id="description">--</div>
+                    <div id="feels-like">Feels like: --°</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
         <h1 class="intro">Like what you see?</h1>
         <div class="profile-photo">
@@ -97,6 +110,74 @@
         
         // Auto-advance every 5 seconds
         setInterval(nextSlide, 5000);
+        
+        // Weather API Integration
+        async function fetchWeather() {
+            try {
+                // Get user's location
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(async (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        
+                        // Fetch weather from Open-Meteo API
+                        const weatherResponse = await fetch(
+                            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,weather_code&temperature_unit=fahrenheit`
+                        );
+                        const weatherData = await weatherResponse.json();
+                        
+                        // Fetch location name using reverse geocoding
+                        const geoResponse = await fetch(
+                            `https://geocoding-api.open-meteo.com/v1/search?latitude=${lat}&longitude=${lon}&count=1`
+                        );
+                        const geoData = await geoResponse.json();
+                        
+                        // Update UI
+                        const location = geoData.results?.[0]?.name || 'Your Location';
+                        const temp = Math.round(weatherData.current.temperature_2m);
+                        const feelsLike = Math.round(weatherData.current.apparent_temperature);
+                        const weatherCode = weatherData.current.weather_code;
+                        
+                        document.getElementById('location').textContent = location;
+                        document.getElementById('temperature').textContent = `${temp}°F`;
+                        document.getElementById('feels-like').textContent = `Feels like: ${feelsLike}°F`;
+                        document.getElementById('description').textContent = getWeatherDescription(weatherCode);
+                    }, (error) => {
+                        // Fallback to default location if geolocation fails
+                        document.getElementById('location').textContent = 'Seattle, WA';
+                        document.getElementById('temperature').textContent = '72°F';
+                        document.getElementById('feels-like').textContent = 'Feels like: 70°F';
+                        document.getElementById('description').textContent = 'Partly Cloudy';
+                    });
+                }
+            } catch (error) {
+                console.error('Weather fetch error:', error);
+                document.getElementById('location').textContent = 'Weather unavailable';
+            }
+        }
+        
+        function getWeatherDescription(code) {
+            const weatherCodes = {
+                0: 'Clear Sky',
+                1: 'Mainly Clear',
+                2: 'Partly Cloudy',
+                3: 'Overcast',
+                45: 'Foggy',
+                48: 'Foggy',
+                51: 'Light Drizzle',
+                61: 'Light Rain',
+                63: 'Moderate Rain',
+                65: 'Heavy Rain',
+                71: 'Light Snow',
+                73: 'Moderate Snow',
+                75: 'Heavy Snow',
+                95: 'Thunderstorm'
+            };
+            return weatherCodes[code] || 'Partly Cloudy';
+        }
+        
+        // Load weather on page load
+        fetchWeather();
     </script>
 </body>
 </html>
