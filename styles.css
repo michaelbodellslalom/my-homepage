@@ -38,30 +38,38 @@ body {
 
 .nav-right {
     display: flex;
-    gap: 15px;
+    gap: 30px;
     align-items: center;
 }
 
-.icon-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
+.nav-link {
+    font-family: 'Bebas Neue', sans-serif;
     color: #1e3a8a;
-    padding: 8px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    transition: color 0.3s, transform 0.2s;
+    position: relative;
 }
 
-.icon-btn:hover {
-    background-color: rgba(30, 58, 138, 0.1);
-    transform: scale(1.1);
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: width 0.3s;
 }
 
-.icon-btn:active {
-    transform: scale(0.95);
+.nav-link:hover {
+    color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 .container {
